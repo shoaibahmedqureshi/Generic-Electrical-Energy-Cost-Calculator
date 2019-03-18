@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrentReading" representedClassName="CurrentReading" syncable="YES" codeGenerationType="class">
+        <attribute name="reading" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="record_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="currentReading" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="currentreading" inverseEntity="Customer" syncable="YES"/>
+    </entity>
+    <entity name="Customer" representedClassName="Customer" syncable="YES" codeGenerationType="class">
+        <attribute name="service_number" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="currentreading" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CurrentReading" inverseName="currentReading" inverseEntity="CurrentReading" syncable="YES"/>
+        <relationship name="readinghistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReadingHistory" inverseName="readinghistory" inverseEntity="ReadingHistory" syncable="YES"/>
+    </entity>
+    <entity name="ReadingHistory" representedClassName="ReadingHistory" syncable="YES" codeGenerationType="class">
+        <attribute name="reading" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="record_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="readinghistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="readinghistory" inverseEntity="Customer" syncable="YES"/>
+    </entity>
+    <entity name="Slabs" representedClassName="Slabs" syncable="YES" codeGenerationType="class">
+        <attribute name="end_unit" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rate_per_unit" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="start_unit" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CurrentReading" positionX="-27" positionY="18" width="128" height="90"/>
+        <element name="Customer" positionX="18" positionY="63" width="128" height="90"/>
+        <element name="Slabs" positionX="54" positionY="99" width="128" height="90"/>
+        <element name="ReadingHistory" positionX="18" positionY="63" width="128" height="90"/>
+    </elements>
+</model>

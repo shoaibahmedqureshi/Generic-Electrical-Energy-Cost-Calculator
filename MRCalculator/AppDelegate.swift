@@ -17,7 +17,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+       configureSlabs()
+        
         return true
+    }
+    
+    func configureSlabs() {
+        let slabs = try! SlabsModel.getAllSlabs()  ////// Intialization of Slabs
+        if slabs != nil {
+            
+        }
+        else {
+            var slabsModel = SlabsModel.init()
+            
+            slabsModel.startUnit = 1
+            slabsModel.endUnit = 100
+            slabsModel.ratePerUnit = 5
+            _ = try? slabsModel.add()
+            
+            
+            slabsModel = SlabsModel.init()
+            slabsModel.startUnit = 101
+            slabsModel.endUnit = 500
+            slabsModel.ratePerUnit = 8
+            _ = try? slabsModel.add()
+            
+            
+            slabsModel = SlabsModel.init()
+            slabsModel.startUnit = 501
+            slabsModel.ratePerUnit = 10
+            _ = try? slabsModel.add()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
